@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link href="./css/main.css" type="text/css" rel="stylesheet" />
+		<title>My first Music player 🎵</title>
+	</head>
+	<body>
+		<div id="bodyer1" class="container">
+			<div class="card">
+				<div class="imgBx">
+					<img class="lazy" src="img/i4.jpg">
+				</div>
+				<div class="contentBx">
+					<div class="content">
+						<audio id="audio" src="./mp3/鹿乃%20-%20アイロニ.mp3"></audio>
+						<h2>アイロニ</h2>
+						<p>歌手：鹿乃 | 专辑：暧昧ばんび~な</p>
+						<p>作詞·作曲·編曲：すこっぷ</p>
+						<button id="btn-play" >播放</button>  
+						<button id="btn-stop" >暂停</button>  
+						<button id="btn-pre" >上一首</button>  
+						<button id="btn-next" >下一首</button> 
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="cxk">
+			<img src="img/g2.gif" />
+		</div>
+		<script>
+			var btn1 = document.getElementById("btn-play"); 
+			btn1.onclick = function(){ 
+				if(audio.paused){
+			      audio.play(); 
+			    }
+			  } 
+			var btn2 = document.getElementById("btn-stop"); 
+			  btn2.onclick = function(){ 
+			     if(audio.played){          
+			      audio.pause(); 
+			    } 
+			  } 
+			var music = new Array(); 
+			music = ["鹿乃 - アイロニ"];
+			var num = 0; 
+			var name = document.getElementById("name"); 
+			var btn3 = document.getElementById("btn-pre"); 
+			btn3.onclick = function(){ 
+			    num = (num +2)%3; 
+			    audio.src = "music/"+music[num]+".mp3"; 
+			    name.innerHTML = music[num]; 
+			    audio.play(); 
+			  } 
+			var btn4 = document.getElementById("btn-next"); 
+			btn4.onclick = function(){ 
+			    num = (num +1)%3; 
+			    audio.src = "music/"+music[num]+".mp3"; 
+			    name.innerHTML = music[num]; 
+			    audio.play(); 
+			  }
+		</script>
+	</body>
+</html>
